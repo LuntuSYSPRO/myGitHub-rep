@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "syspro-enet": {
+      "command": "python",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/servers/syspro-enet/syspro_mcp_wrapper.py"],
+      "env": {
+        "SYSPRO_BASE_URL": "${SYSPRO_BASE_URL:-http://localhost:40001/SYSPROWCFService/Rest}",
+        "SYSPRO_OPERATOR": "${SYSPRO_OPERATOR:-ADMIN}",
+        "SYSPRO_PASSWORD": "${SYSPRO_PASSWORD:-}",
+        "SYSPRO_COMPANY_ID": "${SYSPRO_COMPANY_ID:-EDU1}",
+        "SYSPRO_COMPANY_PASSWORD": "${SYSPRO_COMPANY_PASSWORD:-}"
+      }
+    },
+    "mssql": {
+      "command": "mssql_mcp_server",
+      "args": [],
+      "env": {
+        "MSSQL_DRIVER": "${MSSQL_DRIVER:-ODBC Driver 17 for SQL Server}",
+        "MSSQL_HOST": "${MSSQL_HOST:-localhost}",
+        "MSSQL_DATABASE": "${MSSQL_DATABASE}",
+        "MSSQL_USER": "${MSSQL_USER:-ignored}",
+        "MSSQL_PASSWORD": "${MSSQL_PASSWORD:-ignored}",
+        "Trusted_Connection": "${Trusted_Connection:-yes}"
+      }
+    }
+  }
+}

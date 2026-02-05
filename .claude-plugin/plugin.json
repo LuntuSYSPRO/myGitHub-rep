@@ -1,0 +1,13 @@
+{
+  "name": "syspro-t900-testing",
+  "description": "SYSPRO T900 test case creation with live SYSPRO MCP execution - creates test files by executing actual SYSPRO transactions and capturing real outputs",
+  "version": "1.0.0",
+  "author": {
+    "name": "SYSPRO Development",
+    "email": "development@syspro.com"
+  },
+  "homepage": "https://github.com/your-org/syspro-t900-testing",
+  "repository": "https://github.com/your-org/syspro-t900-testing",
+  "license": "MIT",
+  "keywords": ["syspro", "testing", "t900", "mcp", "erp", "business-objects"]
+}

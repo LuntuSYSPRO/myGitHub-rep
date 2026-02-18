@@ -29,6 +29,14 @@ Use this skill when creating test cases for SYSPRO Business Objects. It guides y
 3. Executing transactions and capturing outputs
 4. Creating properly formatted test files
 
+### /coverage-hunter
+Use this skill when analyzing code coverage HTML reports to create tests for uncovered COBOL blocks. It guides you through:
+1. Locating and parsing coverage reports at `K:\CodeCoverage\[Module]\[BO]\Syspro_[BO].htm`
+2. Identifying uncovered code blocks and their trigger conditions
+3. Distinguishing parameter-driven vs data-driven code paths
+4. Executing real SYSPRO transactions and capturing valid outputs
+5. Creating a single test folder with chained pre/base/post tests to maximize coverage
+
 ## Environment Variables Required
 
 Users must set these environment variables before using:

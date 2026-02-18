@@ -9,6 +9,7 @@ This plugin enables Claude to:
 - **Query SQL Server databases** to verify test data
 - **Create T900 test cases** with properly captured output XML
 - **Follow the Jenkins-testcase-creator skill** for consistent test creation
+- **Analyze code coverage reports** and generate tests to maximize coverage via the coverage-hunter skill
 
 ## Prerequisites
 
@@ -95,7 +96,7 @@ Restart Claude Code to load the MCP servers.
 
 ### Creating Test Cases
 
-Invoke the skill in Claude Code:
+Invoke the test creation skill in Claude Code:
 
 ```
 /Jenkins-testcase-creator
@@ -106,6 +107,27 @@ Or simply ask Claude to create a test case:
 ```
 Create a test case for the INVQRY business object to query stock item A100
 ```
+
+### Maximizing Code Coverage
+
+Invoke the coverage hunter skill in Claude Code:
+
+```
+/coverage-hunter
+```
+
+Or ask Claude to analyze coverage:
+
+```
+Analyze code coverage for INVQ9C and create tests for uncovered blocks
+```
+
+The coverage-hunter skill will:
+1. Parse the HTML coverage report at `K:\CodeCoverage\[Module]\[BO]\Syspro_[BO].htm`
+2. Identify all uncovered code blocks
+3. Analyze trigger conditions (parameters vs data vs setup options)
+4. Execute real transactions via MCP to capture valid outputs
+5. Create a single test folder with chained pre/base/post tests
 
 ### Available MCP Tools
 
@@ -133,8 +155,10 @@ syspro-t900-testing/
 ├── .claude/
 │   └── CLAUDE.md             # Plugin documentation for Claude
 ├── skills/
-│   └── Jenkins-testcase-creator/
-│       └── SKILL.md          # Test creation workflow
+│   ├── Jenkins-testcase-creator/
+│   │   └── SKILL.md          # Test creation workflow
+│   └── coverage-hunter/
+│       └── SKILL.md          # Coverage analysis and test generation
 ├── servers/
 │   └── syspro-enet/
 │       ├── syspro_mcp_wrapper.py
